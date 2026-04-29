@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class TaskRepository {
-    // Mapa para evitar duplicados y asegurar tipos controlados [cite: 36, 39, 57]
+
     private final Map<String, Task> tasks = new ConcurrentHashMap<>();
 
     public Task save(Task task) {

@@ -17,7 +17,7 @@ public class TaskService {
 
     public Task create(TaskDTO dto) {
         Task task = new Task();
-        task.setId(UUID.randomUUID().toString()); // Generamos ID único [cite: 39]
+        task.setId(UUID.randomUUID().toString());
         task.setDescription(dto.getDescription());
         task.setStatus(dto.getStatus());
         task.setPriority(dto.getPriority());
@@ -29,7 +29,7 @@ public class TaskService {
         return repository.findAll();
     }
 
-    // Transformación exigida: Filtrar tareas por estado [cite: 51, 54]
+
     public List<Task> filterByStatus(String status) {
         return repository.findAll().stream()
                 .filter(t -> t.getStatus().equalsIgnoreCase(status))

@@ -20,7 +20,6 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<Task> create(@Valid @RequestBody TaskDTO dto) {
-        // Retorna 201 Created al registrar exitosamente [cite: 67, 139]
         return new ResponseEntity<>(service.create(dto), HttpStatus.CREATED);
     }
 
@@ -37,8 +36,8 @@ public class TaskController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) {
         if (service.delete(id)) {
-            return ResponseEntity.noContent().build(); // 204 No Content
+            return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.notFound().build(); // 404 Not Found [cite: 139]
+        return ResponseEntity.notFound().build();
     }
 }
