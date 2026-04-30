@@ -21,7 +21,7 @@ public class TaskDTO {
     @NotNull(message = "La fecha de vencimiento es obligatoria")
     private LocalDate dueDate;
 
-    // Getters y Setters
+    // Getters y Setters.
 
 
     public @NotNull(message = "La fecha de vencimiento es obligatoria") LocalDate getDueDate() {

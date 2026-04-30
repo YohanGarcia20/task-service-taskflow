@@ -12,7 +12,7 @@ public class Task {
 
     public Task() {}
 
-    // Getters y Setters
+    // Getters y Setters.
 
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
