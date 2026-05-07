@@ -40,4 +40,19 @@ public class TaskController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getById(@PathVariable String id) {
+        return service.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Task> update(@PathVariable String id, @Valid @RequestBody TaskDTO dto) {
+        return service.update(id, dto)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

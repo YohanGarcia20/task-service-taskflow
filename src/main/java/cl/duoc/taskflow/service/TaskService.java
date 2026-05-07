@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.Optional;
+
 @Service
 public class TaskService {
     private final TaskRepository repository;
@@ -43,6 +45,26 @@ public class TaskService {
         }
         return false;
     }
+
+    public Optional<Task> findById(String id) {
+        return repository.findById(id);
+    }
+
+
+    public Optional<Task> update(String id, TaskDTO dto) {
+        return repository.findById(id).map(existingTask -> {
+
+            existingTask.setDescription(dto.getDescription());
+            existingTask.setStatus(dto.getStatus());
+            existingTask.setPriority(dto.getPriority());
+            existingTask.setResponsible(dto.getResponsible());
+            existingTask.setDueDate(dto.getDueDate());
+
+
+            return repository.save(existingTask);
+        });
+    }
 }
+
 
 
